@@ -1,0 +1,9 @@
+FROM rustembedded/cross:aarch64-unknown-linux-gnu
+
+RUN dpkg --add-architecture arm64 && \
+    apt-get update && \
+    apt-get install --assume-yes \
+        # for run bindgen for aarch
+        libclang-8-dev \
+        # add dependencies build for X11
+        libx11-dev:arm64 libc6-dev:arm64

@@ -11,3 +11,7 @@ publish = false
 
 [build-dependencies]
 bindgen = "0.56.0"
+
+[profile.release]
+lto = true
+opt-level = "z"
