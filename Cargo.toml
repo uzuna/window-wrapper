@@ -14,5 +14,5 @@ egl = "0.2.7"
 bindgen = "0.56.0"
 
 [profile.release]
-lto = true
 opt-level = "z"
+lto = "off"  # 依存関係が意図しないものになるためoffを指定

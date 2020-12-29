@@ -1,5 +1,5 @@
 TARGET_ARM64=aarch64-unknown-linux-gnu
-
+BUILD_FLAG?=
 
 .PHONY: setup
 setup:
@@ -7,4 +7,8 @@ setup:
 
 .PHONY: build
 build:
-	SYSROOT=/usr/aarch64-linux-gnu cross build --target=${TARGET_ARM64} -v
+	BUILD_FLAG=--release $(MAKE) build-debug
+
+.PHONY: build-debug
+build-debug:
+	SYSROOT=/usr/aarch64-linux-gnu cross build --target=${TARGET_ARM64} ${BUILD_FLAG}
